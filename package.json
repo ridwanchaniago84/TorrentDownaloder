@@ -1,15 +1,11 @@
 {
   "name": "torrent",
   "version": "1.0.0",
-  "engines": {
-    "node": "14.15.1",
-    "npm": "7.17.0"
-  },
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "netlify-lambda build /"
   },
   "author": "",
   "license": "ISC",
@@ -20,9 +16,11 @@
     "directory-tree": "^2.2.9",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
+    "netlify-lambda": "^2.0.15",
     "rimraf": "^3.0.2",
     "save": "^2.4.0",
     "serve-index": "^1.9.1",
+    "serverless-http": "^3.1.0",
     "webtorrent": "^0.113.0"
   },
   "devDependencies": {
