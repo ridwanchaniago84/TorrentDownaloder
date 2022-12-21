@@ -4,7 +4,6 @@ const serveIndex = require('serve-index');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const dirTree = require("directory-tree");
-const serverless = require('serverless-http');
 
 const client = new webTorrent();
 let port = process.env.PORT || 6969;
@@ -19,6 +18,12 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());
+
+app.get('/', (req, res) => {
+    res.send({
+        status: true
+    });
+})
 
 app.post('/add-magnet', (req, res) => {
     try {
@@ -55,5 +60,3 @@ app.post('/list-file', (req, res) => {
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
 });
-
-module.exports.handler = serverless(app);
